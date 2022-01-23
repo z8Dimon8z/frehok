@@ -11,50 +11,21 @@ $silver-600: #c1c1c1;
 $silver-100: #f6f6f6;
 $white: #ffffff;
 
-// %opensans-300 {
-//   font-family: 'OpenSans-Light', sans-serif;
-//   font-weight: 300;
-// }
+@include font-face(OpenSans-Bold, OpenSans-Bold, 700);
 
-// %opensans-400 {
-//   font-family: 'OpenSans-Regular', sans-serif;
-//   font-weight: normal;
-// }
+@include font-face(OpenSans-SemiBold, OpenSans-SemiBold, 600);
 
-// %opensans-600 {
-//   font-family: 'OpenSans-SemiBold', sans-serif;
-//   font-weight: 600;
-// }
+@include font-face(OpenSans-Regular, OpenSans-Regular, 400);
 
-// %opensans-700 {
-//   font-family: 'OpenSans-Bold', sans-serif;
-//   font-weight: bold;
-// }
+@include font-face(OpenSans-Light, OpenSans-Light, 300);
 
-// %ruda-400 {
-//   font-family: 'Ruda-Regular', sans-serif;
-//   font-weight: normal;
-// }
+@include font-face(Ruda-Black, Ruda-Black, 900);
 
-// %ruda-600 {
-//   font-family: 'Ruda-SemiBold', sans-serif;
-//   font-weight: 600;
-// }
+@include font-face(Ruda-Bold, Ruda-Bold, 700);
 
-// %ruda-700 {
-//   font-family: 'Ruda-Bold', sans-serif;
-//   font-weight: bold;
-// }
+@include font-face(Ruda-SemiBold, Ruda-SemiBold, 600);
 
-
-// %ruda-900 {
-//   font-family: 'Ruda-Black', sans-serif;
-//   font-weight: 900;
-// }
-
-
-
-
+@include font-face(Ruda-Regular, Ruda-Regular, 400);
 
 
 

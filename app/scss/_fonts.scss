@@ -1,91 +1,61 @@
 
-// @font-face {
-//   font-family: 'OpenSans-Regular', sans-serif;
-//   src: local('Open Sans Regular'), local('OpenSans-Regular'),
-//     url('../fonts/OpenSans-Regular.woff2') format('woff2'),
-//     url('../fonts/OpenSans-Regular.woff') format('woff');
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
-// }
 
-// @font-face {
-//   font-family: 'OpenSans-Bold', sans-serif;
-//   src: local('Open Sans Bold'), local('OpenSans-Bold'),
-//     url('../fonts/OpenSans-Bold.woff2') format('woff2'),
-//     url('../fonts/OpenSans-Bold.woff') format('woff');
-//   font-weight: bold;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: 'OpenSans-SemiBold', sans-serif;
-//   src: local('Open Sans SemiBold'), local('OpenSans-SemiBold'),
-//     url('../fonts/OpenSans-SemiBold.woff2') format('woff2'),
-//     url('../fonts/OpenSans-SemiBold.woff') format('woff');
-//   font-weight: 600;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-  
-//   src: local('Open Sans Light'), local('OpenSans-Light'),
-//     url('../fonts/OpenSans-Light.woff2') format('woff2'),
-//     url('../fonts/OpenSans-Light.woff') format('woff');
-//   font-weight: 300;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: 'Ruda-Regular', sans-serif;
-//   src: local('Ruda Regular'), local('Ruda-Regular'),
-//     url('../fonts/Ruda-Regular.woff2') format('woff2'),
-//     url('../fonts/Ruda-Regular.woff') format('woff');
-//   font-weight: normal;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: 'Ruda-Black', sans-serif;
-//   src: local('Ruda Black'), local('Ruda-Black'),
-//     url('../fonts/Ruda-Black.woff2') format('woff2'),
-//     url('../fonts/Ruda-Black.woff') format('woff');
-//   font-weight: 900;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: 'Ruda-SemiBold', sans-serif;
-//   src: local('Ruda SemiBold'), local('Ruda-SemiBold'),
-//     url('../fonts/Ruda-SemiBold.woff2') format('woff2'),
-//     url('../fonts/Ruda-SemiBold.woff') format('woff');
-//   font-weight: 600;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-// @font-face {
-//   font-family: 'Ruda-Bold', sans-serif;
-//   src: local('Ruda Bold'), local('Ruda-Bold'),
-//     url('../fonts/Ruda-Bold.woff2') format('woff2'),
-//     url('../fonts/Ruda-Bold.woff') format('woff');
-//   font-weight: bold;
-//   font-style: normal;
-//   font-display: swap;
-// }
-
-@mixin font-face($font-family, $url, $weight) {
-  @font-face {
-    font-family: "#{$font-family}";
-    src: url('../fonts/#{$url}.woff2') format("woff2"),
-    url('../fonts/#{$url}.woff') format("woff");
-    font-weight: #{$weight};
+ @mixin font-face($font-family, $url, $weight) {
+   @font-face {
+     font-family: "#{$font-family}";
+     src: url('../fonts/#{$url}.woff2') format("woff2"),
+     url('../fonts/#{$url}.woff') format("woff");
+     font-weight: #{$weight};
     font-display: swap;
-    font-style: normal;
-  }
-}
+     font-style: normal;
+   }
+ }
+
+
+
+
+
+
+
+
+
+
+ 
+// $font-adres: '../../fonts/'; // каталог где распологаються файлы шрифтов
+
+// $font-name:( // перечисляем имена всех файлов в массиве
+//   'OpenSans-Bold',
+//    'OpenSans-Light',
+//    'OpenSans-Regular',
+//    'OpenSans-SemiBold',
+//    'Ruda-Black',
+//    'Ruda-Bold',
+//    'Ruda-Regular',
+//    'Ruda-SemiBold'
+// );
+
+// @each $current-font in $font-name {
+//   @font-face {
+//     font-family: $current-font;
+//     /* Имя шрифта */
+//     src: url('#{$font-adres}#{$current-font}.woff2'),
+//     url('#{$font-adres}#{$current-font}.woff');
+//     /*адрес, имя и тип файла в одной строке*/
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+//   }
+// }
+
+
+// @mixin helvetica($style : map-get($font-name, 0)) {
+
+//   // миксин для подключения шрифта
+//   @each $current-font in $font-name {
+//     @if $style==$current-font {
+//       font-family: $current-font;
+//     }
+//   }
+// }
+
+// //  @include helvetica('OpenSans-Bold'); - таким образом подключаем нужные нам шрифты в коде SCSS

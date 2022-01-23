@@ -1,8 +1,6 @@
 
   body {
-    // @extend %opensans-600;
-    @include font-face(OpenSans, OpenSansBold, 700);
-    font-style: normal;
+    font-family: 'Ruda-Regular';
     font-size: 14px;
     line-height: 1.4;
     letter-spacing: 0.03em;
