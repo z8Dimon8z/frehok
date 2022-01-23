@@ -7,6 +7,34 @@ const uglify        = require('gulp-uglify-es').default; // сжатие js
 const autoprefixer  = require('gulp-autoprefixer'); // префиксы в css
 const imagemin      = require('gulp-imagemin'); // сжатие картинок
 const del           = require('del'); // удаление из файлов из папки dist перед билдом (финалом)
+const svgSprite = require('gulp-svg-sprite'); // сщздание svg спрайта
+const cheerio = require('gulp-cheerio'); // обработка svg спрайта
+const replace = require('gulp-replace'); // работа с ошибками svg спрайта
+
+function svgSprites() {
+  return src('app/images/icons/*.svg') // выбираем в папке с иконками все файлы с расширением svg
+  .pipe(cheerio({
+        run: ($) => {
+            $("[fill]").removeAttr("fill"); // очищаем цвет у иконок по умолчанию, чтобы можно было задать свой
+            $("[stroke]").removeAttr("stroke");  // очищаем, если есть лишние атрибуты строк
+            $("[style]").removeAttr("style");  // убираем внутренние стили для иконок
+        },
+        parserOptions: { xmlMode: true },
+      })
+  )
+	.pipe(replace('&gt;','>')) // боремся с заменой символа 
+	.pipe(
+      svgSprite({
+	        mode: {
+	          stack: {
+	            sprite: '../sprite.svg', // указываем имя файла спрайта и путь
+	          },
+	        },
+	      })
+	    )
+	.pipe(dest('app/images')); // указываем, в какую папку поместить готовый файл спрайта
+}
+
 
 function browsersync() { // автоматическая обновление страницы при изменении  в проекте
   browserSync.init({
@@ -52,7 +80,7 @@ function scripts() { // сжатие JS файлов и  подключение 
 
 function styles() { // функция конвертации sass
   return src('app/scss/style.scss')
-      .pipe(scss({outputStyle: 'compressed'})) // сжатие файла css
+      .pipe(scss({outputStyle: 'expanded'})) // сжатие файла css при финале проекта поставить compressed
       .pipe(concat('style.min.css')) // обяденение файлов
       .pipe(autoprefixer({ // для совместимости со старыми браузерами
         overrideBrowserslist: ['last 10 version'], // десять последних версий браузера
@@ -76,6 +104,7 @@ function watching() { // Слежка за изменниями в проект�
   watch(['app/scss/**/*.scss'], styles);
   watch(['app/js/**/*.js', '!app/js/main.min.js'], scripts);
   watch(['app/*.html']).on('change', browserSync.reload);
+  watch(['app/images/icons/*.svg'], svgSprites); // отслеживание иконок
 }
 
 exports.styles = styles;
@@ -84,9 +113,10 @@ exports.browsersync = browsersync;
 exports.scripts = scripts;
 exports.images = images;
 exports.cleanDist = cleanDist;
+exports.svgSprites = svgSprites;
 
 
 exports.build = series(cleanDist, images, build); // последовательность выполнения команд перед bildom (финалом)
-exports.default = parallel(styles ,scripts ,browsersync, watching); // паралельное выполнение команд и пакетов gulpa
+exports.default = parallel(svgSprites, styles ,scripts ,browsersync, watching); // паралельное выполнение команд и пакетов gulpa
 
 

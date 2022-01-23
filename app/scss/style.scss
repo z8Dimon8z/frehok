@@ -4,13 +4,122 @@
 @import 'global';
 @import 'libs';
 
+.header {
 
+  &__top {
+    padding: 14px 0;
+    background-color: $dark-800;
+  }
+
+  &__address {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__address-list {
+    display: flex;
+  }
+
+  &__address-item {
+    margin-right: 40px;
+    padding-left: 44px;
+    position: relative;
+    &::before{
+      content: '';
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat;
+      filter: invert(100%) sepia(2%) saturate(229%) hue-rotate(260deg) brightness(113%) contrast(100%);
+      position: absolute;
+      width: 32px;
+      height: 22px;
+      top: -3px;
+      left: 0;
+    }
+    &--car::before{
+      background-image: url('../images/sprite.svg#icon-address');
+      width: 32px;
+      height: 42px;
+      top: -14px;
+      left: 3px;
+    }
+    &--tel::before {
+      background-image: url('../images/sprite.svg#icon-tel');
+    }
+    &:hover::before {
+      filter: invert(12%) sepia(94%) saturate(4844%) hue-rotate(1deg) brightness(85%) contrast(118%);
+    }
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  &__address-link {
+    @extend %opensans-700;
+    font-size: 13px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: $white;
+  }
+
+  &__bootom {
+    padding: 25px 0;
+    background-color: $green-900;
+  }
+
+  &__inner {}
+
+  &__btn {}
+
+  &__form {}
+
+  &__user {
+  }
+
+  &__user-link {
+  }
+
+  &__user-icon{
+    width: 32px;
+    height: 32px;
+    fill: $white;
+  }
+
+  &__user-num {}
+}
+
+.menu {
+  display: flex;
+  &__item {
+    margin-right: 24px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  &__link {
+    @extend %opensans-700;
+    font-size: 13px;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: $white;
+  }
+}
+
+.logo {
+
+  &__img {}
+
+  &__box {}
+
+  &__title {}
+
+  &__description {}
+}
 
 
 
 
 @import 'media';
-
-
-
 

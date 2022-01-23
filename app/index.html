@@ -9,17 +9,17 @@
 </head>
 
 <body>
-  
+
   <header class="header">
-    <div class="container">
-      <div class="header__top">
-        <div class="header__address">
+    <div class="header__top">
+      <div class="container">
+        <nav class="header__address">
 
           <ul class="header__address-list">
-            <li class="header__address-item">
+            <li class="header__address-item header__address-item--car">
               <a class="header__address-link" href="#">адрес и время доставки</a>
             </li>
-            <li class="header__address-item">
+            <li class="header__address-item header__address-item--tel">
               <a class="header__address-link" href="#">горячая линия 24/7</a>
             </li>
           </ul>
@@ -35,9 +35,45 @@
               <a class="menu__link" href="#">новости</a>
             </li>
           </ul>
+        </nav>
+      </div>
+    </div>
+    <div class="header__bootom">
+      <div class="container">
+        <div class="header__inner">
+          <div class="logo">
+            <img class="logo__img" src="images/icons/logo.svg" alt="Логотип компании">
+            <div class="logo__box">
+              <p class="logo__title">
+                фрешок
+                <span class="logo__description">онлайн-маркет</span>
+              </p>
+            </div>
+          </div>
+          <div class="header__btn">Каталог продуктов</div>
+          <div class="header__form"></div>
+          <div class="header__user">
+            <a class="header__user-link" href="#">
+              <svg class="header__user-icon">
+                <use xlink:href="images/sprite.svg#icon-user"></use>
+              </svg>
+            </a>
+            <a class="header__user-link" href="#">
+              <svg class="header__user-icon">
+                <use xlink:href="images/sprite.svg#icon-heart"></use>
+              </svg>
+              <span class="header__user-num">12</span>
+            </a>
+            <a class="header__user-link" href="#">
+              <svg class="header__user-icon">
+                <use xlink:href="images/sprite.svg#icon-cart"></use>
+              </svg>
+              <span class="header__user-num">12</span>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="header__bootom"></div>
+
     </div>
   </header>
 

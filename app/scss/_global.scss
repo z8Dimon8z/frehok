@@ -1,7 +1,6 @@
 
   body {
-    // font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
+    @extend %opensans-600;
     font-style: normal;
     font-size: 14px;
     line-height: 1.4;
@@ -11,7 +10,7 @@
   }
 
   .container{
-    max-width: 1290px;
+    max-width: 1320px;
     padding: 0 15px;
     margin: 0 auto;
   }
