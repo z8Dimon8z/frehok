@@ -1,6 +1,7 @@
 
   body {
-    @extend %opensans-600;
+    // @extend %opensans-600;
+    @include font-face(OpenSans, OpenSansBold, 700);
     font-style: normal;
     font-size: 14px;
     line-height: 1.4;
