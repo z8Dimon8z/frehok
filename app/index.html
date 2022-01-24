@@ -50,25 +50,32 @@
               </p>
             </div>
           </div>
-          <div class="header__btn">Каталог продуктов</div>
-          <div class="header__form"></div>
+          <div class="header__btn" type="button">Каталог продуктов</div>
+          <form class="form">
+            <label class="form__icon" for="search-icon"></label>
+            <input class="form__input" type="text" id="search-icon" name="search" placeholder="Найти в магазине ..." required>
+            <button class="form__btn" type="submit">поиск</button>
+          </form>
           <div class="header__user">
             <a class="header__user-link" href="#">
               <svg class="header__user-icon">
                 <use xlink:href="images/sprite.svg#icon-user"></use>
               </svg>
+              <span class="sr-only">Регистрация пользователя</span>
             </a>
             <a class="header__user-link" href="#">
               <svg class="header__user-icon">
                 <use xlink:href="images/sprite.svg#icon-heart"></use>
               </svg>
               <span class="header__user-num">12</span>
+              <span class="sr-only">Количество понравившихся товаров</span>
             </a>
             <a class="header__user-link" href="#">
               <svg class="header__user-icon">
                 <use xlink:href="images/sprite.svg#icon-cart"></use>
               </svg>
               <span class="header__user-num">12</span>
+              <span class="sr-only">Количество товаров в корзине</span>
             </a>
           </div>
         </div>
