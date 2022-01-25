@@ -1,11 +1,21 @@
 
+  html,
   body {
-    font-family: 'OpenSans-SemiBold';
+    height: 100%;
+  }
+  
+  body {
+    font-family: 'OpenSans-Regular', sans-serif;
     font-size: 14px;
     line-height: 1.4;
-    letter-spacing: 0.03em;
-    color: $dark-900;
+    color: $dark-500;
     background-color: $white;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .main {
+    flex-grow: 1;
   }
 
   .container{
