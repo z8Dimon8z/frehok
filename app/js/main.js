@@ -5,4 +5,13 @@ $(function () {
     nextArrow: $('.slider__next'),
 
   });
-})
+
+});
+
+var mixer = mixitup('.goods__content', {
+  // load: {
+  //     filter: '.bedroom',
+  // }
+
+});
+
