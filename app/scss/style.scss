@@ -3,6 +3,8 @@
 @import 'vars';
 @import 'global';
 @import 'libs';
+@import 'mixsin';
+
 
 .sr-only {
   position: absolute;
@@ -15,6 +17,31 @@
   clip-path: inset(100%);
   clip: rect(0 0 0 0);
   overflow: hidden;
+}
+
+.padding {
+  padding-top: 75px;
+  padding-bottom: 72px;
+}
+
+.title {
+  font-family: 'Ruda-SemiBold', sans-serif;
+  font-size: 32px;
+  line-height: 1.3;
+  letter-spacing: 1px;
+  text-align: center;
+  color: $dark-900;
+  margin-bottom: 33px;
+  text-transform: uppercase;
+}
+
+.btn {
+  padding: 12px 24px;
+  background-color: $green-900;
+  color: $white;
+  border-radius: 6px;
+  font-size: 18px;
+  line-height: 1.2;
 }
 
 .header {
@@ -282,6 +309,7 @@
     background-position: center center;
     background-size: cover;
     min-height: 600px;
+    // @include responsive-ratio(16, 9);
   }
 
   &__inner {
@@ -293,8 +321,7 @@
     background-color: $white;
     opacity: 0.8;
     width: 100%;
-    min-height: 315px;
-
+    // height: 315px;
   }
 
   &__title {
@@ -304,28 +331,33 @@
     font-size: 60px;
     line-height: 1.3;
     text-transform: uppercase;
-    margin-bottom: 7px;
+    margin-bottom: 3px;
+    @include line-clamp(2);
   }
 
   &__discount {
+    font-family: 'Ruda-Black',
+    sans-serif;
     display: block;
+    max-width: 765px;
+    font-size: 18px;
+    font-size: 60px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
     color: $red-900;
     line-height: 1.3;
+    @include line-clamp(1);
   }
 
   &__description {
     font-size: 16px;
     line-height: 1.3;
     margin-bottom: 36px;
+    @include line-clamp(1);
   }
 
   &__btn {
     padding: 12px 28px;
-    background-color: $green-900;
-    color: $white;
-    border-radius: 6px;
-    font-size: 18px;
-    line-height: 1.2;
   }
 
   &__arrow {
@@ -417,7 +449,11 @@
     font-size: 16px;
     line-height: 1.3;
     margin-bottom: 6px;
+    @include line-clamp(1);
   } 
+  &__text{
+    @include line-clamp(2);
+  }
 }
 
 .goods {
@@ -426,11 +462,10 @@
     margin-bottom: 48px;
   }
 
-  &__title {}
-
   &__wrapper {
     max-width: 1320px;
     margin: 0 auto;
+    margin-bottom: 20px;
   }
 
   &__content {
@@ -438,7 +473,15 @@
     flex-wrap: wrap;
   }
 
-  &__btn {}
+  &__btn-wrapper{
+    text-align: center;
+  }
+
+  &__btn {
+    color: $green-900;
+    background-color: $white;
+    border: 1px solid $green-900;
+  }
 }
 
 .filter {
@@ -530,8 +573,6 @@
     }
   }
 
-
-
   &__favorite-btn {
     border: none;
     background-color: transparent;
@@ -550,48 +591,63 @@
   }
 
   &__img {
-    width: 100%;
+    width: 298px;
     height: 215px;
     object-fit: cover;
   }
 
   &__list {
     padding: 0 6px;
+    display: flex;
+    flex-direction: column;
   }
 
   &__list-title {
-    font-weight: 700;
-    color: #39404B;
-    margin: 0;
-    text-transform: uppercase;
+    font-family: 'OpenSans-SemiBold', sans-serif;
     font-size: 14px;
-    line-height: 2;
-    margin-bottom: 50px;
+    letter-spacing: 0;
+    color: $dark-900;
+    margin-bottom: auto;
+    margin-top: auto;
+    max-width: 239px;
+    height: 62px;
+    @include line-clamp(3);
   }
 
   &__cart {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-top: 3px;
   }
 
   &__cart-box {}
 
   &__cart-old {
     display: block;
-    color: #C1C1C1;
+    color: $silver-600;
     position: relative;
+    letter-spacing: 1px;
+    height: 19px;
     &::before{
-      border-bottom: 1px solid #C1C1C1;
+      border-bottom: 1px solid $silver-600;
       position: absolute;
       content: "";
       width: 100%;
       height: 50%;
       transform: rotate(-12deg);
     }
+    &--disable{
+      font-size: 0;
+      &::before {
+        border-bottom: 1px solid transparent;
+      }
+    }
   }
 
-  &__cart-new {}
+  &__cart-new {
+    letter-spacing: 1px;
+  }
 
   &__cart-btn {
     border: none;
@@ -607,30 +663,150 @@
   }
 }
 
-
 .mixitup-control-active {
   border-bottom: 3px solid #E0EDCF;
 }
 
-.padding{
-  padding-top: 75px;
-  padding-bottom: 72px;
+
+.footer {
+  padding-top: 30px;
+  background-color: $dark-800;
+  color: $white;
+  &__top {
+    padding-bottom: 25px;
+  }
+
+  &__inner {
+    margin-top: 29px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__item {
+    margin-right: 150px;
+    &:last-child{
+      margin-right: 0;
+    }
+    &:nth-child(2){
+      margin-right: 77px;
+    }
+  }
+
+  &__text {
+    margin-bottom: 13px;
+  }
+
+  &__form {
+    position: relative;
+    width: 306px;
+    
+  }
+
+  &__form-input {
+    width: 100%;
+    height: 40px;
+    padding-left: 12px;
+    border: 1px solid $white;
+    border-radius: 6px;
+    outline: none;
+    color: $dark-800;
+    &::placeholder{
+      font-family: OpenSans-Regular;
+      color: $dark-800;
+      font-size: 14px;
+      line-height: 1.4;
+      // letter-spacing: 0.3px;
+    }
+  }
+
+  &__form-btn {
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 126px;
+    height: 40px;
+    border: none;
+    font-size: 12px;
+    background-color: $green-900;
+    color: $white;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    padding: 12px 16px;
+  }
+
+  &__list {
+    columns: 3;
+    column-gap: 77px;
+  }
+
+  &__list-item {
+    width: 129px;
+    margin-bottom: 21px;
+  }
+
+  &__list-link {}
+
+  &__phone {
+    font-style: normal;
+    margin-bottom: 18px;
+    display: block;
+  }
+
+  &__address {
+    font-style: normal;
+    margin-bottom: 18px;
+  }
+
+  &__bottom{
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__copyright {
+    text-transform: uppercase;
+  }
+
+  &__payment {}
+
+  &__payment-visa {
+    width: 93px;
+    height: 29px;
+    fill: $white;
+    margin-right: 20px;
+  }
+  &__payment-master {
+    width: 49px;
+    height: 29px;
+    fill: $white;
+  }
 }
 
-.title {
-  font-family: 'Ruda-SemiBold', sans-serif;
-  font-size: 32px;
-  line-height: 1.3;
-  letter-spacing: 1px;
-  text-align: center;
-  color: $dark-900;
-  margin-bottom: 33px;
-  text-transform: uppercase;
+.social {
+
+  &__box {
+    display: flex;
+  }
+
+  &__item {
+    margin-right: 11px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+
+  &__icon {
+    width: 32px;
+    height: 32px;
+    fill: $white;
+  }
 }
-
-.btn {}
-
-
 
 
 @import 'media';
