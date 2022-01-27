@@ -5,45 +5,6 @@
 @import 'libs';
 @import 'mixsin';
 
-
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  white-space: nowrap;
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
-
-.padding {
-  padding-top: 75px;
-  padding-bottom: 72px;
-}
-
-.title {
-  font-family: 'Ruda-SemiBold', sans-serif;
-  font-size: 32px;
-  line-height: 1.3;
-  letter-spacing: 1px;
-  text-align: center;
-  color: $dark-900;
-  margin-bottom: 33px;
-  text-transform: uppercase;
-}
-
-.btn {
-  padding: 12px 24px;
-  background-color: $green-900;
-  color: $white;
-  border-radius: 6px;
-  font-size: 18px;
-  line-height: 1.2;
-}
-
 .header {
 
   &__top {
@@ -89,10 +50,6 @@
 
     &--tel::before {
       background-image: url('../images/sprite.svg#icon-tel');
-    }
-
-    &:hover::before {
-      filter: invert(12%) sepia(94%) saturate(4844%) hue-rotate(1deg) brightness(85%) contrast(118%);
     }
 
     &:last-child {
@@ -165,8 +122,10 @@
   }
 
   &__user-link {
-    margin-right: 30px;
+    margin-right: 11px;
     position: relative;
+    width: 50px;
+    height: 50px;
 
     &:last-child {
       margin-right: 0;
@@ -186,8 +145,8 @@
     border-radius: 50%;
     background-color: $white;
     color: $red-900;
-    top: -4px;
-    left: -8px;
+    top: 1px;
+    left: 2px;
     font-size: 10px;
     line-height: 18px;
     text-align: center;
@@ -198,7 +157,7 @@
   position: relative;
   max-width: 578px;
   width: 100%;
-  margin-right: 54px;
+  margin-right: 45px;
 
   &__icon {
     &::before {
@@ -209,10 +168,10 @@
       background-size: contain;
       filter: invert(16%) sepia(6%) saturate(1322%) hue-rotate(42deg) brightness(94%) contrast(86%);
       position: absolute;
-      width: 24px;
-      height: 24px;
-      top: 13px;
-      left: 10px;
+      width: 28px;
+      height: 28px;
+      top: 11px;
+      left: 9px;
     }
   }
 
@@ -318,8 +277,7 @@
 
   &__content {
     padding: 25px 24px;
-    background-color: $white;
-    opacity: 0.8;
+    background-color: rgba($white, 0.8);
     width: 100%;
     // height: 315px;
   }
@@ -337,7 +295,7 @@
 
   &__discount {
     font-family: 'Ruda-Black',
-    sans-serif;
+      sans-serif;
     display: block;
     max-width: 765px;
     font-size: 18px;
@@ -369,6 +327,10 @@
     position: absolute;
     top: 50%;
     transform: translateY(-67%);
+    transition-property: fill,
+      box-shadow,
+      background-color;
+    transition-duration: 0.5s;
 
     svg {
       width: 19px;
@@ -376,11 +338,28 @@
       fill: $dark-500;
     }
 
-    &:hover {
-      background-color: #E0EDCF;
+    &:focus {
+      box-shadow: 0px 0px 0px 3px rgba(99, 166, 14, 0.5);
+      border-radius: 6px;
 
       svg {
-        fill: #63A60E;
+        fill: $dark-500;
+      }
+    }
+
+    &:hover {
+      background-color: $green-200;
+
+      svg {
+        fill: $green-900;
+      }
+    }
+
+    &:active {
+      background-color: rgba(255, 255, 255, 0.8);
+
+      svg {
+        fill: $green-900;
       }
     }
   }
@@ -409,10 +388,12 @@
     position: relative;
     margin-right: 65px;
     padding-left: 74px;
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
-    &::before{
+
+    &::before {
       content: '';
       position: absolute;
       width: 50px;
@@ -427,7 +408,7 @@
   }
 
   &__item--delivery {
-    &::before{
+    &::before {
       background-image: url('../images/sprite.svg#scooter');
     }
   }
@@ -450,8 +431,9 @@
     line-height: 1.3;
     margin-bottom: 6px;
     @include line-clamp(1);
-  } 
-  &__text{
+  }
+
+  &__text {
     @include line-clamp(2);
   }
 }
@@ -473,7 +455,7 @@
     flex-wrap: wrap;
   }
 
-  &__btn-wrapper{
+  &__btn-wrapper {
     text-align: center;
   }
 
@@ -491,7 +473,8 @@
 
   &__item {
     margin-right: 21px;
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
   }
@@ -541,19 +524,21 @@
     border-radius: 6px;
     text-transform: uppercase;
     margin-bottom: 7px;
-    &--disable{
+
+    &--disable {
       height: 16px;
       font-size: 0;
       background-color: transparent;
     }
-    &--hit{
+
+    &--hit {
       background-color: $orange-900;
     }
   }
 
   &__discount {
     font-family: 'OpenSans-Bold',
-    sans-serif;
+      sans-serif;
     height: 16px;
     width: fit-content;
     font-size: 10px;
@@ -563,12 +548,14 @@
     padding: 2px 6px;
     border-radius: 6px;
     text-transform: uppercase;
+
     &--disable {
       height: 16px;
       font-size: 0;
       background-color: transparent;
     }
-    &--order{
+
+    &--order {
       order: -1;
     }
   }
@@ -576,25 +563,78 @@
   &__favorite-btn {
     border: none;
     background-color: transparent;
+    width: 32px;
+    height: 28px;
+    transition-property: fill, box-shadow, opacity;
+    transition-duration: 0.5s;
+    &:focus{
+      outline: transparent;
+      box-shadow: 0px 0px 0px 3px $green-200;
+      border-radius: 3px;
+    }
+    &:hover{
+      svg{
+        fill: $yellow-900;
+      }
+    }
+    &:active{
+      svg {
+        fill: $yellow-900;
+        opacity: 0.5;
+      }
+    }
   }
 
-  &__favorite-icon{
+  &__favorite-icon {
     width: 32px;
     height: 28px;
     fill: $silver-600;
-    
+
   }
 
   &__link {
     margin-bottom: 18px;
     display: block;
+    width: 100%;
+    position: relative;
+    box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    &:hover::before {
+      content: '';
+      position: absolute;
+      width: 48px;
+      height: 48px;
+      background-color: $white;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      
+    }
+    &:hover::after {
+      content: '';
+      background-image: url('../images/sprite.svg#icon-search');
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-size: contain;
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      filter: invert(44%) sepia(99%) saturate(1241%) hue-rotate(54deg) brightness(100%) contrast(89%);
+    }
   }
 
   &__img {
     width: 298px;
     height: 215px;
     object-fit: cover;
+    &:hover {
+      box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.3);
+    }
   }
+  
 
   &__list {
     padding: 0 6px;
@@ -629,7 +669,8 @@
     position: relative;
     letter-spacing: 1px;
     height: 19px;
-    &::before{
+
+    &::before {
       border-bottom: 1px solid $silver-600;
       position: absolute;
       content: "";
@@ -637,8 +678,10 @@
       height: 50%;
       transform: rotate(-12deg);
     }
-    &--disable{
+
+    &--disable {
       font-size: 0;
+
       &::before {
         border-bottom: 1px solid transparent;
       }
@@ -664,7 +707,7 @@
 }
 
 .mixitup-control-active {
-  border-bottom: 3px solid #E0EDCF;
+  border-bottom: 3px solid $green-200;
 }
 
 
@@ -672,6 +715,7 @@
   padding-top: 30px;
   background-color: $dark-800;
   color: $white;
+
   &__top {
     padding-bottom: 25px;
   }
@@ -684,10 +728,12 @@
 
   &__item {
     margin-right: 150px;
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
-    &:nth-child(2){
+
+    &:nth-child(2) {
       margin-right: 77px;
     }
   }
@@ -699,7 +745,7 @@
   &__form {
     position: relative;
     width: 306px;
-    
+
   }
 
   &__form-input {
@@ -710,7 +756,8 @@
     border-radius: 6px;
     outline: none;
     color: $dark-800;
-    &::placeholder{
+
+    &::placeholder {
       font-family: OpenSans-Regular;
       color: $dark-800;
       font-size: 14px;
@@ -720,6 +767,7 @@
   }
 
   &__form-btn {
+    font-family: 'OpenSans-Bold', sans-serif;
     position: absolute;
     top: 0;
     right: 0px;
@@ -745,8 +793,6 @@
     margin-bottom: 21px;
   }
 
-  &__list-link {}
-
   &__phone {
     font-style: normal;
     margin-bottom: 18px;
@@ -758,9 +804,9 @@
     margin-bottom: 18px;
   }
 
-  &__bottom{
+  &__bottom {
     padding: 24px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba($white, 0.1);
   }
 
   &__wrapper {
@@ -773,14 +819,13 @@
     text-transform: uppercase;
   }
 
-  &__payment {}
-
   &__payment-visa {
     width: 93px;
     height: 29px;
     fill: $white;
     margin-right: 20px;
   }
+
   &__payment-master {
     width: 49px;
     height: 29px;
@@ -796,9 +841,16 @@
 
   &__item {
     margin-right: 11px;
-    &:last-child{
+
+    &:last-child {
       margin-right: 0;
     }
+  }
+
+  &__link {
+    display: block;
+    width: 32px;
+    height: 32px;
   }
 
   &__icon {
